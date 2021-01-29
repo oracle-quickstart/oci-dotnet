@@ -1,5 +1,6 @@
 # Local .terraform directories
 **/.terraform/*
+**/.terrafor*
 
 # .tfstate files
 *.tfstate
@@ -12,7 +13,6 @@ crash.log
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
 #
-*.zip*
 *.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
@@ -24,6 +24,9 @@ override.tf.json
 
 # General
 .DS_Store
+**/.DS_Store
+*.tgz
+*.zip
 .AppleDouble
 .LSOverride
 
