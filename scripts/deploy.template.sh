@@ -8,10 +8,26 @@
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 #
 
-mkdir /app
-cd /app
+# Stop script on NZEC
+set -e
+# Stop script if unbound variable found
+set -u
+# This is causing it to fail
+set -o pipefail
+
+# Set Variables for DotNet CLI
+export HOME=/root
 export DOTNET_CLI_HOME=/root
-dotnet new webApp -o myWebApp --no-https
-cd myWebApp
-# dotnet run --urls "http://*:5000"
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+
+# Prepare App folder
+mkdir /app && cd /app
+dotnet nuget list client-cert
+
+# Create base webApp
+dotnet new webApp -o myOracleQuickstartWebApp --no-https --no-restore
+
+# Publish app to be ready to run as a service
+cd myOracleQuickstartWebApp
+dotnet restore
 dotnet publish --configuration Release
