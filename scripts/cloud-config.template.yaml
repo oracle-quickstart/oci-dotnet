@@ -26,7 +26,7 @@ write_files:
 
       [Service]
       Type=simple
-      ExecStart=/usr/bin/dotnet /app/myWebApp/bin/Release/net5.0/myWebApp.dll --urls "http://*:5000"
+      ExecStart=/usr/bin/dotnet /app/myOracleQuickstartWebApp/bin/Release/net5.0/myOracleQuickstartWebApp.dll --urls "http://*:5000"
       Restart=always
       RestartSec=10
       KillSignal=SIGINT
@@ -43,8 +43,8 @@ runcmd:
  - /root/setup.preflight.sh
  - echo "Finished prep scripts."
  - echo "Starting DotNet App..."
- - systemctl start dotnet-app
  - systemctl enable dotnet-app
+ - systemctl start dotnet-app
 
 final_message: "The system is finally up, after $UPTIME seconds"
 output: {all: '| tee -a /root/cloud-init-output.log'}
