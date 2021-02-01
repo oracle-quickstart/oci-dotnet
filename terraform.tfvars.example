@@ -20,7 +20,6 @@ instance_shape                      = "VM.Standard.E2.1.Micro"
 instance_visibility                 = "Public"
 generate_public_ssh_key             = true
 public_ssh_key                      = ""
-is_pv_encryption_in_transit_enabled = false
 
 # Network Details
 lb_shape = "10Mbps-Micro"
