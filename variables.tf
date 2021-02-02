@@ -64,3 +64,17 @@ variable "use_only_always_free_elegible_resources" {
 variable "show_advanced" {
   default = false
 }
+
+# Customizing App
+variable "dotnet_create_standard_webapp" {
+  default = true
+}
+variable "dotnet_standard_type" {
+  default = "webApp" # E.g.: blazorserver
+}
+variable "dotnet_custom_text_for_standard_webapp" {
+  default = "Welcome to the Oracle QuickStart"
+}
+variable "dotnet_git_custom_webapp" {
+  default = "https://github.com/aspnet/samples.git"
+}
