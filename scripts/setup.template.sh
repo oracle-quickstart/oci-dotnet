@@ -23,7 +23,7 @@ apt-get update; \
   apt-get install -y dotnet-sdk-5.0
 
 # Install the DotNet runtime
-pt-get update; \
+apt-get update; \
   apt-get install -y apt-transport-https && \
   apt-get update && \
   apt-get install -y aspnetcore-runtime-5.0

@@ -25,9 +25,16 @@ mkdir /app && cd /app
 dotnet nuget list client-cert
 
 # Create base webApp
-dotnet new webApp -o myOracleQuickstartWebApp --no-https --no-restore
+dotnet new ${dotnet_standard_type} -o myOracleQuickstartWebApp --no-https --no-restore
 
-# Publish app to be ready to run as a service
+## Customize standard WebApp
 cd myOracleQuickstartWebApp
+sed -i 's/Welcome/${dotnet_custom_text_for_standard_webapp}/g' Pages/Index.cshtml
+
+# Optional git repo
+# git clone ${dotnet_git_custom_webapp} myOracleQuickstartWebApp
+# cd myOracleQuickstartWebApp
+
+# Publish app to be ready to run as a service - Linux X86, Linux X64, Linux ARM32, Linux ARM64
 dotnet restore
-dotnet publish --configuration Release
+dotnet publish --configuration Release --runtime linux-x64 --self-contained true -p:PublishReadyToRun=true
