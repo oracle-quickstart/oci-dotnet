@@ -29,4 +29,6 @@ output "deploy_id" {
 output "deployed_to_region" {
   value = local.region_to_deploy
 }
-
+output "dotnet_template_used" {
+  value = var.dotnet_standard_type
+}

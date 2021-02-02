@@ -1,0 +1,254 @@
+# Copyright (c) 2021 Oracle and/or its affiliates. All rights reserved.
+# Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
+# 
+
+title: "ASP.Net WebApp Sample"
+description: "QuickStart on ASP.Net on Oracle Cloud Infrastructure"
+schemaVersion: 1.1.0
+version: "20190304"
+
+source:
+  type: quickstart
+logoUrl: data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PHN0eWxlPi5jbHMtMXtmaWxsOiM1YzJkOTE7fS5jbHMtMiwuY2xzLTN7ZmlsbDojZmZmO30uY2xzLTJ7b3BhY2l0eTowLjE7fS5jbHMtNHtmaWxsOiNmMmYyZjI7fTwvc3R5bGU+PC9kZWZzPjx0aXRsZT5sb2dvX05FVGNvcmU8L3RpdGxlPjxjaXJjbGUgY2xhc3M9ImNscy0xIiBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiLz48cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik05LjgyLDlBMzIsMzIsMCwxLDAsNTUsNTQuMThaIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNy40LDM3LjI1YTEuMzUsMS4zNSwwLDAsMS0xLS40MiwxLjM4LDEuMzgsMCwwLDEtLjQxLTEsMS40LDEuNCwwLDAsMSwuNDEtMSwxLjM0LDEuMzQsMCwwLDEsMS0uNDMsMS4zNywxLjM3LDAsMCwxLDEsLjQzLDEuMzksMS4zOSwwLDAsMSwuNDIsMSwxLjM3LDEuMzcsMCwwLDEtLjQyLDFBMS4zOCwxLjM4LDAsMCwxLDcuNCwzNy4yNVoiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yNy4yNywzN0gyNC42NUwxNS4yOCwyMi40NmE2LDYsMCwwLDEtLjU4LTEuMTRoLS4wOGExOC43MiwxOC43MiwwLDAsMSwuMSwyLjVWMzdIMTIuNTlWMTguNzdoMi43N2w5LjEyLDE0LjI4cS41Ny44OS43NCwxLjIyaC4wNWExOS4yOCwxOS4yOCwwLDAsMS0uMTMtMi42OFYxOC43N2gyLjEzWiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQxLjY5LDM3SDMyVjE4Ljc3aDkuMjRWMjAuN0gzNC4xOHY2LjA2aDYuNTh2MS45MkgzNC4xOFYzNWg3LjUyWiIvPjxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTU2LDIwLjdINTAuN1YzN0g0OC41N1YyMC43SDQzLjMzVjE4Ljc3SDU2WiIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTI2LjEyLDQ5LjRhNC45Myw0LjkzLDAsMCwxLTIuMzIuNDksMy43NCwzLjc0LDAsMCwxLTIuODctMS4xNSw0LjI2LDQuMjYsMCwwLDEtMS4wOC0zLDQuNDYsNC40NiwwLDAsMSwxLjIxLTMuMjYsNC4xMiw0LjEyLDAsMCwxLDMuMDgtMS4yNCw0LjkzLDQuOTMsMCwwLDEsMiwuMzV2MWE0LDQsMCwwLDAtMi0uNSwzLjA2LDMuMDYsMCwwLDAtMi4zNSwxLDMuNjQsMy42NCwwLDAsMC0uOSwyLjU4LDMuNDcsMy40NywwLDAsMCwuODQsMi40NSwyLjg2LDIuODYsMCwwLDAsMi4yMS45MSw0LjE0LDQuMTQsMCwwLDAsMi4xOS0uNTZaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNMzAuMjEsNDkuODlBMi43OCwyLjc4LDAsMCwxLDI4LjA4LDQ5YTMuMTEsMy4xMSwwLDAsMS0uNzktMi4yMywzLjI0LDMuMjQsMCwwLDEsLjgzLTIuMzYsMywzLDAsMCwxLDIuMjMtLjg1LDIuNjksMi42OSwwLDAsMSwyLjA5LjgzLDMuMjgsMy4yOCwwLDAsMSwuNzUsMi4yOSwzLjIyLDMuMjIsMCwwLDEtLjgxLDIuM0EyLjg0LDIuODQsMCwwLDEsMzAuMjEsNDkuODlabS4wNy01LjQ3YTEuODMsMS44MywwLDAsMC0xLjQ2LjYzLDIuNTksMi41OSwwLDAsMC0uNTQsMS43NCwyLjQ1LDIuNDUsMCwwLDAsLjU0LDEuNjgsMS44NSwxLjg1LDAsMCwwLDEuNDYuNjIsMS43NiwxLjc2LDAsMCwwLDEuNDMtLjYsMi42MiwyLjYyLDAsMCwwLC41LTEuNzIsMi42NiwyLjY2LDAsMCwwLS41LTEuNzNBMS43NSwxLjc1LDAsMCwwLDMwLjI4LDQ0LjQyWiIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTM3Ljg2LDQ0LjcyYTEuMTgsMS4xOCwwLDAsMC0uNzMtLjE5LDEuMjMsMS4yMywwLDAsMC0xLC41OCwyLjY4LDIuNjgsMCwwLDAtLjQxLDEuNTh2My4wNmgtMXYtNmgxVjQ1aDBhMi4xLDIuMSwwLDAsMSwuNjMtMSwxLjQzLDEuNDMsMCwwLDEsLjk0LS4zNSwxLjU3LDEuNTcsMCwwLDEsLjU3LjA4WiIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTQzLjcyLDQ3SDM5LjQ5QTIuMjQsMi4yNCwwLDAsMCw0MCw0OC41NGExLjg2LDEuODYsMCwwLDAsMS40Mi41NCwzLDMsMCwwLDAsMS44Ni0uNjd2LjlhMy40OCwzLjQ4LDAsMCwxLTIuMDkuNTcsMi41NCwyLjU0LDAsMCwxLTItLjgyLDMuMzUsMy4zNSwwLDAsMS0uNzMtMi4zLDMuMjgsMy4yOCwwLDAsMSwuNzktMi4yOCwyLjU1LDIuNTUsMCwwLDEsMi0uODgsMi4yNiwyLjI2LDAsMCwxLDEuODIuNzYsMy4xOCwzLjE4LDAsMCwxLC42NCwyLjEyWm0tMS0uODFhMiwyLDAsMCwwLS40LTEuMjksMS4zNywxLjM3LDAsMCwwLTEuMS0uNDYsMS41NSwxLjU1LDAsMCwwLTEuMTUuNDksMi4yMSwyLjIxLDAsMCwwLS41OSwxLjI3WiIvPjwvc3ZnPg==
+
+locale: "en"
+groupings:
+  - title: "Basic Hidden"
+    visible: false
+    variables:
+    - compartment_ocid
+    - tenancy_ocid
+    - region
+
+  - title: "General Configuration"
+    variables:
+    - num_instances
+
+  - title: "Optional Configuration"
+    variables:
+    - show_advanced
+    - generate_public_ssh_key
+    - public_ssh_key
+
+  - title: "Advanced Resource Options"
+    variables:
+    - use_only_always_free_elegible_resources
+
+  - title: "Advanced Resource Options - DotNet App Customization"
+    variables:
+    - dotnet_standard_type
+    - dotnet_custom_text_for_standard_webapp
+
+  - title: "Advanced Resource Options - Load Balancer"
+    variables:
+    - lb_shape
+
+  - title: "Advanced Resource Options - Compute"
+    variables:
+    - instance_shape
+    - image_operating_system
+    - image_operating_system_version
+    - instance_visibility
+
+  - title: "Extras Hidden"
+    variables:
+      - user_ocid
+      - fingerprint
+      - private_key_path
+      - network_cidrs
+      - dotnet_create_standard_webapp
+      - dotnet_git_custom_webapp
+    visible: false
+
+variables:
+  compartment_ocid:
+    type: oci:identity:compartment:id
+    required: true
+    title: "Compartment"
+    description: "The compartment in which to create compute instance(s) and ATP."
+
+  num_instances:
+    type: enum
+    enum:
+    - "1"
+    - "2"
+    title: "Number of Instances"
+    description: "Choose the number of compute instances to deploy."
+    default: "2"
+    required: true
+
+  show_advanced:
+    type: boolean
+    title: "Show advanced options?"
+    description: "Shows advanced options, select your ssh key, and other advanced options."
+    visible: true
+
+  generate_public_ssh_key:
+    type: boolean
+    title: "Auto-generate public ssh key?"
+    description: "Auto-generate a public key and assign to the compute instances. Uncheck to provide your own public key or leave blank not to use any attach any key to the compute instance."
+    visible:
+      and:
+        - show_advanced
+
+  public_ssh_key:
+    type: oci:core:ssh:publickey
+    title: "SSH Public Key"
+    description: "The public SSH key for the key-pair that you want to use, if you wish to login to the instances over SSH."
+    additionalProps:
+      allowMultiple: true
+    pattern: "((^(ssh-rsa AAAAB3NzaC1yc2|ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNT|ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzOD|ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1Mj|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5|ssh-dss AAAAB3NzaC1kc3)[0-9A-Za-z+\/]+[=]{0,3})( [^,]*)?)(,((ssh-rsa AAAAB3NzaC1yc2|ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNT|ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzOD|ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1Mj|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5|ssh-dss AAAAB3NzaC1kc3)[0-9A-Za-z+\/]+[=]{0,3})( [^,]*)?)*$"
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - generate_public_ssh_key
+
+  use_only_always_free_elegible_resources:
+    type: boolean
+    title: "Use only always free eligible resources?"
+    description: "*** Unchecking this may use options that are not included or supported by Always Free eligible resources."
+    visible:
+      and:
+        - show_advanced
+
+  dotnet_standard_type:
+    type: enum
+    enum:
+    - "webApp"
+    - "blazorserver"
+    title: "Select the DotNet type to be created"
+    description: "WebApp creates the standard ASP.Net Core app. BlazorServer, creates sample with blazor pages."
+    required: true
+    visible:
+      and:
+        - show_advanced
+
+  dotnet_custom_text_for_standard_webapp:
+    type: string
+    title: "Custom Text to show on the Home Page"
+    description: "Changes the standard Welcome message on the ASP.Net WebApp page."
+    required: true
+    visible:
+      and:
+        - show_advanced
+
+  lb_shape:
+    type: enum
+    enum:
+    - "10Mbps-Micro"
+    - "100Mbps"
+    - "400Mbps"
+    - "8000Mbps"
+    title: "Select a shape for the load balancer"
+    description: "A load balancer provides automated traffic distribution from one entry point to multiple servers in a backend set. The load balancer ensures that your services remain available by directing traffic only to healthy servers in the backend set."
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - use_only_always_free_elegible_resources
+
+  instance_shape:
+    type: oci:core:instanceshape:name
+    title: "Select a shape for the compute instances"
+    description: "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance."
+    dependsOn:
+      compartmentId: compartment_ocid
+    required: true
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - use_only_always_free_elegible_resources
+
+  image_operating_system:
+    type: string
+    title: "Compute Image OS"
+    description: "The OS/image installed on all compute instances."
+    required: true
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - use_only_always_free_elegible_resources
+
+  image_operating_system_version:
+    type: string
+    title: "Compute Image OS Version"
+    description: "The OS/image version installed on all compute instances."
+    required: true
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - use_only_always_free_elegible_resources
+
+  instance_visibility:
+    type: enum
+    enum:
+    - "Public"
+    - "Private"
+    title: "Choose instance visibility type"
+    description: "The instance visibility will define if assign a public ip address to the compute instance and if the subnet is public or private."
+    visible:
+      and:
+        - and:
+          - show_advanced
+        - not:
+          - use_only_always_free_elegible_resources
+
+outputGroups:
+  - title: "ASP.Net App details"
+    outputs:
+      - lb_public_url
+      - generated_private_key_pem
+      - deploy_id
+      - deployed_to_region
+      - dotnet_template_used
+      - dev
+      - comments
+
+outputs:
+  lb_public_url:
+    type: link
+    title: Open
+    visible: true
+  
+  generated_private_key_pem:
+    type: string
+    title: "Generated Private Key for SSH Access"
+    displayText: "Generated Private Key for ssh access to compute nodes"
+    visible: true
+
+  dev:
+    type: string
+    title: "Message"
+    visible: true
+
+  dotnet_template_used:
+    type: string
+    title: "Message"
+    visible: true
+  
+  deploy_id:
+    type: string
+    title: "Deployment Id"
+    visible: true
+
+  deployed_to_region:
+    type: string
+    title: "Deployed using Region"
+    visible: true
+
+  comments:
+    type: string
+    title: "Comments"
+    displayText: "The application URL will be unavailable for a few minutes after provisioning, while the application is configured"
+    visible: true
+  
+primaryOutputButton: ${lb_public_url}
