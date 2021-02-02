@@ -118,4 +118,10 @@ data "template_file" "setup_template" {
 }
 data "template_file" "deploy_template" {
   template = file("${path.module}/scripts/deploy.template.sh")
+
+  vars = {
+    dotnet_standard_type = var.dotnet_standard_type
+    dotnet_custom_text_for_standard_webapp = var.dotnet_custom_text_for_standard_webapp
+    dotnet_git_custom_webapp = var.dotnet_git_custom_webapp
+  }
 }
