@@ -29,9 +29,13 @@ dotnet new ${dotnet_standard_type} -o myOracleQuickstartWebApp --no-https --no-r
 
 ## Customize standard WebApp
 cd myOracleQuickstartWebApp
-sed -i 's/Welcome/${dotnet_custom_text_for_standard_webapp}/g' Pages/Index.cshtml
+filenametocustomize="Pages/Index.cshtml"
+if [[ -e $filenametocustomize ]]
+then
+    sed -i 's/Welcome/${dotnet_custom_text_for_standard_webapp}/g' $filenametocustomize
+fi
 
-# Optional git repo
+# Optional git repo (Alternative Deployment)
 # git clone ${dotnet_git_custom_webapp} myOracleQuickstartWebApp
 # cd myOracleQuickstartWebApp
 
