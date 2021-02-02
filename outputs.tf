@@ -2,12 +2,8 @@
 # Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
 # 
 
-output "app_public_url" {
+output "lb_public_url" {
   value = format("http://%s", lookup(oci_load_balancer_load_balancer.dotnet_lb.ip_address_details[0], "ip_address"))
-}
-
-output "public_ips" {
-  value = "rm private_key && pbpaste > private_key && chmod 600 private_key && ssh -oStrictHostKeyChecking=accept-new -i private_key ubuntu@${oci_core_instance.app_instance.0.public_ip}"
 }
 
 ### Important Security Notice ###
