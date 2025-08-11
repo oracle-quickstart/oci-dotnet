@@ -77,7 +77,7 @@ Please consult the [security guide](./SECURITY.md) for our responsible security 
 
 ## License
 
-Copyright (c) 2021 Oracle and/or its affiliates.
+Copyright (c) 2018-2020 Oracle and/or its affiliates.
 
 *Replace this statement if your project is not licensed under the UPL*
 
